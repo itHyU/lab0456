@@ -13,7 +13,7 @@ namespace BigSchool.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202006151801000_AddNameColumnToApplicationUser"; }
+            get { return "202006160126078_AddNameColumnToApplicationUser"; }
         }
         
         string IMigrationMetadata.Source

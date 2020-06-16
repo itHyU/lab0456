@@ -13,6 +13,7 @@
         }
     </ul>
 </div>*@
+<div class="row">
 <ul class="course">
     @foreach(var course in Model.UpcommingCourses)
     {
@@ -26,11 +27,11 @@
                 </div>
             </div>
             <div class="details">
-                <span class="lecturer">
-                    @course.Lecturer.Name
+                <span class="lecturer">@course.Id --- @course.Lecturer.Name
+                  
                     @if (Model.ShowAction)
                     {
-                        <button class="btn btn-link btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
+                        <button data-user-id="@course.LecturerId" class="btn btn-default btn-sm js-toggle-follow">Follow</button>
                     }
                     
                 </span>
@@ -38,39 +39,38 @@
                     @course.Category.Name
                     @if (Model.ShowAction)
                     {
-                        <button data-course-id="@course.Id" class="btn btn-link btn-sm js-toggle-follow"></button>
+                        <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
                     }
                 </span>
             </div>
         </li>
     }
-</ul>
+    </ul>
+ </div>
 @section scripts
 {
     <script>
         $(document).ready(function () {
             $(".js-toggle-attendance").click(function (e) {
                 var button = $(e.target);
-                $.post("/api/attendances", { courseId: button.attr("data-course-id") })
-                .done(function () {
+                $.post("/api/attendances", { CourseId: button.attr("data-course-id") }).done(function () {
                     button
                     .removeClass("btn-default")
                     .addClass("btn-info")
-                    .text("Going");
+                    .text("Going")
                 })
                 .fail(function () {
-                    alert("Something failed!");
+                    alert("Something fail");
                 });
             });
             $(".js-toggle-follow").click(function (e) {
                 var button = $(e.target);
-                $.post("/api/followings", { courseId: button.attr("data-course-id") })
-                .done(function () {
-                    button.text("Following")
-
+                $.post("/api/followings", { FolloweeId: button.attr("data-user-id") }).done(function () {
+                    button
+                    .text("Following")
                 })
                 .fail(function () {
-                    alert("Something failed!");
+                    alert("Something fail");
                 });
             });
         });
