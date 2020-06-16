@@ -17,7 +17,7 @@ namespace BigSchool.Controllers
         public FollowingsController()
         {
             _dbContext = new ApplicationDbContext();
-        }
+        } 
         [HttpPost]
         public IHttpActionResult Follow(FollowingDto followingDto)
         {
