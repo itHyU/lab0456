@@ -7,13 +7,13 @@ namespace BigSchool.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddFollowingTable : IMigrationMetadata
+    public sealed partial class KhoiTao : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddFollowingTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(KhoiTao));
         
         string IMigrationMetadata.Id
         {
-            get { return "202006160126485_AddFollowingTable"; }
+            get { return "202006230132198_KhoiTao"; }
         }
         
         string IMigrationMetadata.Source

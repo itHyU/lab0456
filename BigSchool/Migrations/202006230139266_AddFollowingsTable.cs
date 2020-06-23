@@ -3,7 +3,7 @@ namespace BigSchool.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddIsCaceledColumnToCourse : DbMigration
+    public partial class AddFollowingsTable : DbMigration
     {
         public override void Up()
         {
